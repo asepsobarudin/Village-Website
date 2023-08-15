@@ -15,7 +15,7 @@
                     <h2 class="my-3 text-[25px] font-medium">Tautan</h2>
                     <ul class="list-disc text-[14px] font-light flex flex-col gap-1">
                         <li><a href="#">Kabupaten Kuningan</a></li>
-                        <li><a href="#">Provisi Jawa Barat</a></li>
+                        <li><a href="#">Provinsi Jawa Barat</a></li>
                     </ul>
                 </div>
             </div>

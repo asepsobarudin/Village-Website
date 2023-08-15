@@ -3,12 +3,11 @@
     <x-slideshow :slideshow="$slideshow" />
 
     <div class="container">
-        <div class="flex flex-col-reverse lg:flex-row w-full py-3">
+        <div class="flex flex-col lg:flex-row w-full py-3">
             <div class="w-full px-3 lg:w-[75%]">
                 <x-news titleNews="Berita Terkini" newsLink="berita_terkini" />
-                <x-news titleNews="Pengumuman" newsLink="pengumuman" />
             </div>
-            <x-categories />
+            <x-timetable />
         </div>
 
         <div class="w-full h-[2px] bg-black/30 my-4"></div>

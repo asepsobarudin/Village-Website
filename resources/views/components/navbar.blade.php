@@ -1,5 +1,5 @@
-<div class="bg-[#e85d04] flex justify-center items-center select-none ease-in-out duration-100">
-    <div class="container py-3 text-white flex justify-center md:justify-between items-center mx-4">
+<div class="bg-green-700 flex lg:flex lg:absolute top-0 left-0 right-0 z-50 justify-center items-center select-none ease-in-out duration-300" id="navbar_top">
+    <div class="container py-2 text-white flex justify-center md:justify-between items-center mx-4">
         <div class="flex justify-center items-center">
             <div class="flex justify-center items-center text-[16px]">
                 <ion-icon name="call"></ion-icon>
@@ -19,7 +19,7 @@
     </div>
 </div>
 
-<nav class="bg-[#03071e] lg:bg-[#03071e] p-4 select-none flex flex-col justify-center items-center relative z-10 w-full ease-in-out duration-150"
+<nav class="bg-[#03071e] lg:bg-[#03071e] p-4 select-none flex flex-col justify-center items-center relative lg:fixed lg:top-[40px] z-10 w-full ease-in-out duration-500"
     id="navbar">
     <div class="flex justify-between items-center container">
         <a href="#" class="flex justify-center items-center">
@@ -89,6 +89,8 @@
 </nav>
 
 <script>
+    var navbar = document.getElementById('navbar');
+    var navbar_top = document.getElementById('navbar_top');
     var hamburger = document.getElementById('hamburger');
     var value_hamburger = document.getElementById('value_hamburger');
 
@@ -113,21 +115,23 @@
         }
     });
 
-    var navbar = document.getElementById('navbar');
-
     window.addEventListener("scroll", function() {
-        if (window.pageYOffset > 33) {
-            navbar.classList.remove('lg:relative');
+        if (window.pageYOffset >= 50) {
+            navbar_top.classList.remove('top-0');
+            navbar_top.classList.add('top-[-40px]');
+
             navbar.classList.remove('lg:bg-[#03071e]');
+            navbar.classList.remove('lg:top-[40px]');
             navbar.classList.add('lg:bg-[#03071e]/80');
-            navbar.classList.add('lg:fixed');
             navbar.classList.add('lg:top-0');
         } else {
-            navbar.classList.remove('lg:fixed');
+            navbar_top.classList.remove('top-[-40px]');
+            navbar_top.classList.add('top-0');
+
             navbar.classList.remove('lg:top-0');
             navbar.classList.remove('lg:bg-[#03071e]/80');
+            navbar.classList.add('lg:top-[40px]');
             navbar.classList.add('lg:bg-[#03071e]');
-            navbar.classList.add('lg:relative');
         }
     });
 </script>

@@ -17,9 +17,7 @@
     @vite('resources/js/app.css')
     {{-- End Vite CSS JS --}}
 
-    {{-- CSS Style Tailwind --}}
-    @vite('resources/css/components/category.css')
-    {{-- End CSS Style Tailwind --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
     {{-- Ionicon --}}
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -35,7 +33,7 @@
 
     <x-footer />
 
-    <button class="fixed hidden cursor-pointer bottom-5 right-5 text-[50px] text-red-600 animate-bounce" id="backToTop">
+    <button class="fixed hidden cursor-pointer bottom-5 right-5 text-[50px] text-green-700" id="backToTop">
         <ion-icon name="caret-up-circle"></ion-icon>
     </button>
 
