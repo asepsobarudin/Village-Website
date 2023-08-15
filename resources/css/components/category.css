@@ -1,0 +1,21 @@
+@import url('./../app.css');
+
+.category {
+    @apply flex flex-wrap lg:flex-col justify-center lg:justify-start w-full gap-2;
+}
+
+.category li {
+    @apply flex justify-center;
+}
+
+.category li a{
+    @apply px-2 py-3 text-center font-medium bg-[#FFFF] text-[#03071e] border-2 border-[#03071e]/60 hover:border-[#03071e] hover:bg-[#03071e] hover:text-white ease-in-out duration-100 rounded-md w-full select-none flex items-center;
+}
+
+.category li a .icon {
+    @apply text-[20px] lg:text-[30px] mx-2;
+}
+
+.category li a span {
+    @apply text-left;
+}
