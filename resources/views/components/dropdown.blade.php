@@ -1,6 +1,7 @@
 <div>
     <label for="kategori{{ $title }}"
-        class="p-3 hover:bg-[#370617] rounded-md cursor-pointer flex justify-center items-center relative z-10">
+        class="p-3 hover:bg-color4 hover:skew-x-[-12deg] rounded-md cursor-pointer flex justify-center items-center relative z-10 bg_kategori"
+        id="bg_kategori{{ $title }}">
         <div class="mx-1">{{ $title }}</div>
         <div class="rotate-0 ease-out duration-100 flex justify-center items-center arrow-drop"
             id="arrow-drop{{ $title }}">
@@ -8,12 +9,12 @@
         </div>
     </label>
     <input type="checkbox" name="kategori" id="kategori{{ $title }}" class="hidden kategori">
-    <ul class="absolute z-0 right-0 bg-[#370617] px-3 py-2 top-10 hidden flex-col justify-center items-center rounded-md w-max h-max value_kategori"
+    <ul class="absolute z-0 right-1 bg-color4 px-3 py-2 top-10 hidden flex-col justify-center items-center rounded-md w-max h-max value_kategori"
         id="value_kategori{{ $title }}">
         @foreach ($menu as $mn)
             <li class="w-full my-2">
                 <a href="{{ $mn['link'] }}"
-                    class="flex w-full hover:bg-[#6a040f] p-3 rounded-md {{ $active == $mn['title'] ? 'text-[#f48c06]' : '' }}">{{ $mn['title'] }}</a>
+                    class="flex w-full hover:bg-color2 p-3 rounded-md {{ $active == $mn['title'] ? 'text-color3' : '' }}">{{ $mn['title'] }}</a>
             </li>
         @endforeach
     </ul>
@@ -21,12 +22,14 @@
 
 <script>
     var kategori{{ $title }} = document.getElementById('kategori{{ $title }}');
+    var bg_kategori{{ $title }} = document.getElementById('bg_kategori{{ $title }}');
     var value_kategori{{ $title }} = document.getElementById('value_kategori{{ $title }}');
     var arrow_drop{{ $title }} = document.getElementById('arrow-drop{{ $title }}');
 
     var otherDropdowns = document.querySelectorAll('.value_kategori');
     var otherCheckboxes = document.querySelectorAll('.kategori');
     var otherArrow = document.querySelectorAll('.arrow-drop');
+    var otherBg = document.querySelectorAll('.bg_kategori');
 
     function kategori_menu_{{ $title }}() {
         if (kategori{{ $title }}.checked) {
@@ -35,6 +38,9 @@
 
             arrow_drop{{ $title }}.classList.remove('rotate-0');
             arrow_drop{{ $title }}.classList.add('rotate-180');
+
+            bg_kategori{{ $title }}.classList.add('bg-color4');
+            bg_kategori{{ $title }}.classList.add('skew-x-[-12deg]');
 
             otherDropdowns.forEach(function(dropdown) {
                 if (dropdown !== value_kategori{{ $title }}) {
@@ -55,12 +61,22 @@
                     dropdown.classList.add('rotate-0');
                 }
             });
+
+            otherBg.forEach(function(dropdown) {
+                if (dropdown !== bg_kategori{{ $title }}) {
+                    dropdown.classList.remove('bg-color4');
+                    dropdown.classList.remove('skew-x-[-12deg]');
+                }
+            });
         } else {
             value_kategori{{ $title }}.classList.remove('flex');
             value_kategori{{ $title }}.classList.add('hidden');
 
             arrow_drop{{ $title }}.classList.remove('rotate-180');
             arrow_drop{{ $title }}.classList.add('rotate-0');
+
+            bg_kategori{{ $title }}.classList.remove('bg-color4');
+            bg_kategori{{ $title }}.classList.remove('skew-x-[-12deg]');
         }
     }
 

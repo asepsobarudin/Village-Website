@@ -17,7 +17,7 @@
     @vite('resources/js/app.css')
     {{-- End Vite CSS JS --}}
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{{ asset('dist/css/swiper.css') }}" />
 
     {{-- Ionicon --}}
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
@@ -25,7 +25,7 @@
     {{-- End Ionicon --}}
 </head>
 
-<body class="bg-white/90">
+<body class="bg-white/90 relative">
     <x-navbar :active="$title" :menulayanan="$dropLayanan" :menuprofile="$dropProfile" />
     <div class="flex flex-col items-center justify-start min-h-screen mb-10">
         @yield('content')
