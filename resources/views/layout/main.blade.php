@@ -14,7 +14,9 @@
 
     {{-- Vite CSS JS --}}
     @vite('resources/css/app.css')
-    @vite('resources/js/app.css')
+    @vite('resources/js/app.js')
+
+    @vite('resources/js/main.js')
     {{-- End Vite CSS JS --}}
 
     <link rel="stylesheet" href="{{ asset('dist/css/swiper.css') }}" />
@@ -26,7 +28,7 @@
 </head>
 
 <body class="bg-white/90 relative">
-    <x-navbar :active="$title" :menulayanan="$dropLayanan" :menuprofile="$dropProfile" />
+    <x-navbar :active="$title" :menu="$menu" />
     <div class="flex flex-col items-center justify-start min-h-screen mb-10">
         @yield('content')
     </div>
@@ -36,28 +38,6 @@
     <button class="fixed hidden cursor-pointer bottom-5 right-5 text-[50px] text-green-700" id="backToTop">
         <ion-icon name="caret-up-circle"></ion-icon>
     </button>
-
-    <script>
-        var backToTopButton = document.getElementById("backToTop");
-        var container = document.getElementById('container')
-
-        window.addEventListener("scroll", function() {
-            if (window.pageYOffset > 300) {
-                backToTopButton.classList.remove('hidden');
-                backToTopButton.classList.add('block');
-            } else {
-                backToTopButton.classList.remove('block');
-                backToTopButton.classList.add('hidden');
-            }
-        });
-
-        backToTopButton.addEventListener("click", function() {
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
-    </script>
 </body>
 
 </html>

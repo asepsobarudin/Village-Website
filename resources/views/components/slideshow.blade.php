@@ -27,9 +27,9 @@
                             <img class="object-cover relative z-0 w-full h-full flex justify-center items-center"
                                 src="{{ $slide['image'] }}" alt="Image 1">
                             <div
-                                class="absolute z-10 bottom-0 flex items-end justify-center w-full h-full bg-black/40 py-10">
+                                class="absolute z-10 bottom-0 flex items-end justify-center w-full h-full bg-color5/40 py-10">
                                 <a href="{{ $slide['link'] }}"
-                                    class="text-[16px] cursor-pointer md:text-[20px] lg:text-[25px] text-white font-medium w-1/2 text-center">{{ $slide['title'] }}</a>
+                                    class="text-[16px] cursor-pointer md:text-[20px] lg:text-[25px] text-color1 font-medium w-1/2 text-center">{{ $slide['title'] }}</a>
                             </div>
                         </div>
                     </div>
@@ -37,10 +37,10 @@
             @endforeach
         </div>
         <div class="absolute hidden lg:block top-[40%] bottom-[50%] left-0 z-10 btn-prev cursor-pointer">
-            <ion-icon name="chevron-back-outline" class="text-[50px] text-black/60"></ion-icon>
+            <ion-icon name="chevron-back-outline" class="text-[50px] text-color4/50"></ion-icon>
         </div>
         <div class="absolute hidden lg:block top-[40%] bottom-[50%] right-0 z-10 btn-next cursor-pointer">
-            <ion-icon name="chevron-forward-outline" class="text-[50px] text-black/60"></ion-icon>
+            <ion-icon name="chevron-forward-outline" class="text-[50px] text-color4/50"></ion-icon>
         </div>
         <div class="swiper-pagination"></div>
     </div>

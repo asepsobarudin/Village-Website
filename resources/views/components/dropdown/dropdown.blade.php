@@ -1,16 +1,13 @@
 <div>
     <label for="kategori{{ $title }}"
-        class="p-3 hover:bg-color2 hover:text-color1 hover:skew-x-[-12deg] rounded-md cursor-pointer flex justify-center items-center relative z-10 bg_kategori"
-        id="bg_kategori{{ $title }}">
+        class="p-3 hover:bg-color2 hover:text-color1 hover:skew-x-[-12deg] rounded-md cursor-pointer flex justify-center items-center relative z-10 bg_kategori" id="bg_kategori{{ $title }}">
         <div class="mx-1">{{ $title }}</div>
-        <div class="rotate-0 ease-out duration-100 flex justify-center items-center arrow-drop"
-            id="arrow-drop{{ $title }}">
+        <div class="rotate-0 ease-out duration-100 flex justify-center items-center arrow_drop" id="arrow_drop{{ $title }}">
             <ion-icon name="caret-down-outline"></ion-icon>
         </div>
     </label>
     <input type="checkbox" name="kategori" id="kategori{{ $title }}" class="hidden kategori">
-    <ul class="absolute z-0 right-1 bg-color2 text-color1 px-3 py-2 top-10 hidden flex-col justify-center items-center rounded-md w-max h-max value_kategori"
-        id="value_kategori{{ $title }}">
+    <ul class="absolute z-0 right-1 bg-color2 text-color1 px-3 py-2 top-10 hidden flex-col justify-center items-center rounded-md w-max h-max value_kategori" id="value_kategori{{ $title }}" >
         @foreach ($menu as $mn)
             <li class="w-full my-2">
                 <a href="{{ $mn['link'] }}"
@@ -23,14 +20,13 @@
 <script>
     var kategori{{ $title }} = document.getElementById('kategori{{ $title }}');
     var bg_kategori{{ $title }} = document.getElementById('bg_kategori{{ $title }}');
-    var drop_title{{ $title }} = document.getElementById('drop_title{{ $title }}');
     var value_kategori{{ $title }} = document.getElementById('value_kategori{{ $title }}');
-    var arrow_drop{{ $title }} = document.getElementById('arrow-drop{{ $title }}');
+    var arrow_drop{{ $title }} = document.getElementById('arrow_drop{{ $title }}');
 
-    var otherDropdowns = document.querySelectorAll('.value_kategori');
-    var otherCheckboxes = document.querySelectorAll('.kategori');
-    var otherArrow = document.querySelectorAll('.arrow-drop');
     var otherBg = document.querySelectorAll('.bg_kategori');
+    var otherArrow = document.querySelectorAll('.arrow-drop');
+    var otherCheckboxes = document.querySelectorAll('.kategori');
+    var otherDropdowns = document.querySelectorAll('.value_kategori');
 
     function kategori_menu_{{ $title }}() {
         if (kategori{{ $title }}.checked) {
@@ -44,16 +40,17 @@
             bg_kategori{{ $title }}.classList.add('text-color1');
             bg_kategori{{ $title }}.classList.add('skew-x-[-12deg]');
 
-            otherDropdowns.forEach(function(dropdown) {
-                if (dropdown !== value_kategori{{ $title }}) {
-                    dropdown.classList.remove('flex');
-                    dropdown.classList.add('hidden');
-                }
-            });
-
             otherCheckboxes.forEach(function(dropdown) {
                 if (dropdown !== kategori{{ $title }}) {
                     dropdown.checked = false;
+                }
+            });
+
+            otherBg.forEach(function(dropdown) {
+                if (dropdown !== bg_kategori{{ $title }}) {
+                    dropdown.classList.remove('bg-color2');
+                    dropdown.classList.remove('text-color1');
+                    dropdown.classList.remove('skew-x-[-12deg]');
                 }
             });
 
@@ -64,11 +61,10 @@
                 }
             });
 
-            otherBg.forEach(function(dropdown) {
-                if (dropdown !== bg_kategori{{ $title }}) {
-                    dropdown.classList.remove('bg-color2');
-                    dropdown.classList.remove('text-color1');
-                    dropdown.classList.remove('skew-x-[-12deg]');
+            otherDropdowns.forEach(function(dropdown) {
+                if (dropdown !== value_kategori{{ $title }}) {
+                    dropdown.classList.remove('flex');
+                    dropdown.classList.add('hidden');
                 }
             });
         } else {
