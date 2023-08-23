@@ -67,3 +67,24 @@ backToTopButton.addEventListener("click", function () {
     });
 });
 //End back to Top
+
+// Slide Show
+var slideshow = document.getElementById("slideshow");
+
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        navigation: {
+            nextEl: ".btn-next",
+            prevEl: ".btn-prev",
+        },
+    });
+// End Slide Show
+
