@@ -9,10 +9,10 @@
                 class="p-3 w-full hover:bg-color2 hover:text-color1 {{ $active == 'Berita' ? 'text-color4' : '' }} rounded-md ease-in-out duration-100 text-center">Berita</a>
         </li>
         <li class="flex justify-center items-center my-1 w-full">
-            <x-dropdown.dropdown_mobile title="Profile" :active="$active" :menu="$menu['dropProfile']" />
+            <x-navbar.dropdown.dropdown_mobile title="Profile" :active="$active" :menu="$menu['dropProfile']" />
         </li>
         <li class="flex justify-center items-center my-1 w-full">
-            <x-dropdown.dropdown_mobile title="Layanan" :active="$active" :menu="$menu['dropLayanan']" />
+            <x-navbar.dropdown.dropdown_mobile title="Layanan" :active="$active" :menu="$menu['dropLayanan']" />
         </li>
     </ul>
 

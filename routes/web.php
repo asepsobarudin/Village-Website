@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
 Route::controller(Home::class)->group(function () {
-    Route::get('home', 'index');
+    Route::get('/', 'index');
 });

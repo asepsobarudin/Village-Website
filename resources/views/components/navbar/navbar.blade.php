@@ -30,7 +30,7 @@
             </div>
         </a>
 
-        <x-menu.desktop :active="$active" :menu="$menu" />
+        <x-navbar.menu.desktop :active="$active" :menu="$menu" />
 
         <label for="hamburger"
             class="text-color2 hover:text-color4 bg-black/10 p-2 rounded-full text-[30px] flex lg:hidden justify-center items-center mr-3">
@@ -39,5 +39,5 @@
         <input type="checkbox" class="hidden" name="hamburger" id="hamburger">
     </div>
 
-    <x-menu.mobile :active="$active" :menu="$menu" />
+    <x-navbar.menu.mobile :active="$active" :menu="$menu" />
 </nav>

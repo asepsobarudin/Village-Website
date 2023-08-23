@@ -28,7 +28,7 @@
 </head>
 
 <body class="bg-white/90 relative">
-    <x-navbar :active="$title" :menu="$menu" />
+    <x-navbar.navbar :active="$title" :menu="$menu" />
     <div class="flex flex-col items-center justify-start min-h-screen mb-10">
         @yield('content')
     </div>

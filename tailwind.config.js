@@ -13,6 +13,7 @@ export default {
             'color3' : '#375F97',
             'color4' : '#1d3557',
             'color5' : '#000000',
+            'color6' : '#e63946',
         }
     },
   },
