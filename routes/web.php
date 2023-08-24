@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +21,8 @@ Route::get('/welcome', function () {
 
 Route::controller(Home::class)->group(function () {
     Route::get('/', 'index');
+});
+
+Route::controller(DashboardController::class)->group(function () {
+    Route::get('/dashboard', 'index');
 });
