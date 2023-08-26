@@ -40,6 +40,18 @@ class Home extends Controller
                     'image' => 'https://source.unsplash.com/random/?city',
                     'link' => '#slide3'
                 ]
+            ],
+            'calendar' => [
+                [
+                    'tanggal' => 17,
+                    'bulan' => 8,
+                    'event' => "Hari Kemerdekaan Indonesia"
+                ],
+                [
+                    'tanggal' => 23,
+                    'bulan' => 8,
+                    'event' => "Hari Ulang Tahun Desa Selajambe"
+                ]
             ]
         ];
 

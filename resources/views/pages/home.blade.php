@@ -7,7 +7,8 @@
             <div class="w-full px-3 lg:w-[75%]">
                 <x-news.news titleNews="Berita Terkini" newsLink="berita_terkini" />
             </div>
-            <x-timetable />
+            @component('components.timetable', ['calendar' => $calendar])
+            @endcomponent
         </div>
 
         <div class="w-full h-[2px] bg-black/30 my-4"></div>

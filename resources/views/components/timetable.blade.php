@@ -18,7 +18,7 @@
     }
 
     .calendar-body {
-        padding: 20px;
+        padding: 0px 20px;
     }
 
     .calendar-body ul {
@@ -35,7 +35,6 @@
     .calendar-body li {
         width: calc(100% / 7);
         font-size: 14px;
-        color: #414141;
     }
 
     .calendar-body .calendar-weekdays li {
@@ -107,6 +106,15 @@
         <ul class="calendar-dates">
         </ul>
     </div>
+
+    <div class="mb-3 flex flex-col gap-2 rounded-md border-2 border-color6/30 p-4 event">
+            {{-- <div class="text-xs flex text-color6/80 font-medium">
+                <span class="w-[10%] block">{{ $c['tanggal'] }}</span>
+                <span class="w-[5%] block"> : </span>
+                <span class="w-[85%] block">{{ $c['event'] }}</span>
+            </div> --}}
+
+    </div>
 </div>
 
 <script>
@@ -115,6 +123,7 @@
     let month = date.getMonth();
 
     const day = document.querySelector(".calendar-dates");
+    const event = document.querySelector(".event");
 
     const currdate = document
         .querySelector(".calendar-current-date");
@@ -137,17 +146,7 @@
         "Desember"
     ];
 
-    const events = [{
-            'tanggal': 17,
-            'bulan': 8,
-            'event': "Perayaan Hari Kemerdekaan"
-        },
-        {
-            'tanggal': 23,
-            'bulan': 8,
-            'event': "Ulang Tahun Desa Selajambe"
-        }
-    ];
+    const events = <?php echo json_encode($calendar); ?>;
 
     const manipulate = () => {
 
@@ -182,24 +181,37 @@
                 "active" :
                 "";
 
-
             let isEvent = "";
 
             // Find the event for the current date
             const eventForCurrentDate = events.find(event => event.tanggal === i && event.bulan === (month + 1));
             if (eventForCurrentDate) {
-                isEvent =
-                    `<span class="w-2 h-2 bg-red-600 block absolute rounded-full top-[-8px] right-1 duration-100 ease-in-out z-10"></span>
-                    <a href="#" class="absolute block w-0 h-0 group-hover:w-[160px] group-hover:h-max opacity-0 group-hover:opacity-100 hover:text-color2 w-max bg-[#e4e1e1] text-black font-normal rounded-md p-2 right-1 bottom-5 duration-200 ease-in-out z-0 overflow-hidden text-start">${eventForCurrentDate.event}</a>`;
+                isEvent = "text-color6 font-medium"
+            } else {
+                isEvent = "text-[#414141]"
             }
 
-            lit += `<li class="${isToday} group">${i} ${isEvent}</li>`;
+            lit += `<li class="${isToday} ${isEvent} group">${i}</li>`;
         }
 
         // Loop to add the first dates of the next month
         for (let i = dayend; i < 6; i++) {
             lit += `<li class="inactive">${i - dayend + 1}</li>`
         }
+
+        let showEvent = "";
+
+        events.forEach(function (event) {
+            if(event.bulan === (month + 1)){
+                showEvent += `<div class="text-xs flex text-color6/80 font-medium">
+                <span class="w-[10%] block">${event.tanggal}</span>
+                <span class="w-[5%] block"> : </span>
+                <span class="w-[85%] block">${event.event}</span>
+            </div>`;
+            } else {
+                showEvent = "Tidak Ada Event";
+            }
+        });
 
         // Update the text of the current date element
         // with the formatted current month and year
@@ -208,6 +220,7 @@
         // update the HTML of the dates element
         // with the generated calendar
         day.innerHTML = lit;
+        event.innerHTML = showEvent;
     }
 
     manipulate();
