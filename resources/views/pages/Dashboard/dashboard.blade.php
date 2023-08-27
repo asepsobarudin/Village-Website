@@ -1,20 +1,24 @@
 @extends('layout.main_dashboard')
 @section('content')
-    <div class="w-full px-3">
+    <div class="w-full p-3">
         <header class="my-3">
             <h1 class="text-[20px] lg:text-[30px] font-medium">Wellcome To Your Dashboard Admin</h1>
             <div class="block h-[2px] bg-color5/50 my-3"></div>
         </header>
-        <main>
-            <div class="flex justify-center items-center flex-wrap gap-2">
-                <div class="h-max w-full lg:w-[48%] rounded-md border-2 p-2">
+        <main class="flex flex-wrap gap-3">
+            <div class="flex justify-center w-full lg:w-[68.5%] items-center flex-wrap gap-3">
+                <div class="h-max w-full rounded-md p-3 bg-color1 shadow-[0_15px_40px_0_rgba(0,0,0,0.12)]">
                     <h2 class="text-center font-medium text-lg my-2">Jumlah Pengunjung</h2>
                     <canvas id="chartViews" class="h-full w-full"></canvas>
                 </div>
-                <div class="h-max w-full lg:w-[48%] rounded-md border-2 p-2">
+                <div class="h-max w-full rounded-md p-3 bg-color1 shadow-[0_15px_40px_0_rgba(0,0,0,0.12)]">
                     <h2 class="text-center font-medium text-lg my-2">Jumlah User</h2>
                     <canvas id="chartUser" class="h-full w-full"></canvas>
                 </div>
+            </div>
+            <div class="w-full lg:w-[30%]">
+                @component('components.timetable', ['calendar' => $calendar])
+                @endcomponent
             </div>
         </main>
     </div>

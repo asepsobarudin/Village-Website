@@ -78,7 +78,7 @@
     }
 </style>
 
-<div class="calendar-container select-none w-full px-3 lg:w-[25%] h-max mt-6">
+<div class="calendar-container select-none p-3">
     <header class="calendar-header flex-wrap">
         <p class="calendar-current-date"></p>
         <div class="calendar-navigation">
@@ -107,8 +107,8 @@
         </ul>
     </div>
 
-    <div class="mb-3 flex flex-col gap-2 rounded-md border-2 border-color6/30 p-4 event">
-            {{-- <div class="text-xs flex text-color6/80 font-medium">
+    <div class="flex flex-col gap-2 rounded-md border-2 border-color6/30 p-4 event">
+        {{-- <div class="text-xs flex text-color6/80 font-medium">
                 <span class="w-[10%] block">{{ $c['tanggal'] }}</span>
                 <span class="w-[5%] block"> : </span>
                 <span class="w-[85%] block">{{ $c['event'] }}</span>
@@ -201,17 +201,23 @@
 
         let showEvent = "";
 
-        events.forEach(function (event) {
-            if(event.bulan === (month + 1)){
-                showEvent += `<div class="text-xs flex text-color6/80 font-medium">
+        events.forEach(function(event) {
+            let isMonth = event.bulan === (month + 1) ?
+                `<div class="text-xs flex text-color6/80 font-medium">
                 <span class="w-[10%] block">${event.tanggal}</span>
                 <span class="w-[5%] block"> : </span>
                 <span class="w-[85%] block">${event.event}</span>
-            </div>`;
-            } else {
-                showEvent = "Tidak Ada Event";
-            }
+            </div>` : '';
+
+            showEvent += isMonth;
         });
+
+        if (!showEvent.length) {
+            showEvent = `
+            <div class="text-xs flex text-color6/80 font-medium">
+                Tidak ada event!
+            </div>`;
+        }
 
         // Update the text of the current date element
         // with the formatted current month and year

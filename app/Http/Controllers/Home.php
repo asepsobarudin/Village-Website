@@ -51,6 +51,11 @@ class Home extends Controller
                     'tanggal' => 23,
                     'bulan' => 8,
                     'event' => "Hari Ulang Tahun Desa Selajambe"
+                ],
+                [
+                    'tanggal' => 25,
+                    'bulan' => 12,
+                    'event' => "Hari Natal"
                 ]
             ]
         ];
