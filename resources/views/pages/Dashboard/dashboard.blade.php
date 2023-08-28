@@ -7,11 +7,11 @@
         </header>
         <main class="flex flex-wrap gap-3">
             <div class="flex justify-center w-full lg:w-[68.5%] items-center flex-wrap gap-3">
-                <div class="h-max w-full rounded-md p-3 bg-color1 shadow-[0_15px_40px_0_rgba(0,0,0,0.12)]">
+                <div class="h-max w-full rounded-md p-3 bg-color1 shadow-md">
                     <h2 class="text-center font-medium text-lg my-2">Jumlah Pengunjung</h2>
                     <canvas id="chartViews" class="h-full w-full"></canvas>
                 </div>
-                <div class="h-max w-full rounded-md p-3 bg-color1 shadow-[0_15px_40px_0_rgba(0,0,0,0.12)]">
+                <div class="h-max w-full rounded-md p-3 bg-color1 shadow-md">
                     <h2 class="text-center font-medium text-lg my-2">Jumlah User</h2>
                     <canvas id="chartUser" class="h-full w-full"></canvas>
                 </div>

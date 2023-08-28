@@ -1,10 +1,4 @@
 <style>
-    .calendar-container {
-        background: #fff;
-        border-radius: 10px;
-        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
-    }
-
     .calendar-container header {
         display: flex;
         align-items: center;
@@ -78,17 +72,17 @@
     }
 </style>
 
-<div class="calendar-container select-none p-3">
+<div class="calendar-container bg-color1 shadow-lg rounded-md select-none p-3">
     <header class="calendar-header flex-wrap">
         <p class="calendar-current-date"></p>
         <div class="calendar-navigation">
             <span id="calendar-prev">
                 <ion-icon name="caret-back-outline"
-                    class="text-[30px] text-color5/20 p-1 hover:bg-color2/10 rounded-full"></ion-icon>
+                    class="text-[30px] text-color5/20 p-1 hover:bg-color2/10 rounded-full shadow-md"></ion-icon>
             </span>
             <span id="calendar-next" class="material-symbols-rounded">
                 <ion-icon name="caret-forward-outline"
-                    class="text-[30px] text-color5/20 p-1 hover:bg-color2/10 rounded-full"></ion-icon>
+                    class="text-[30px] text-color5/20 p-1 hover:bg-color2/10 rounded-full shadow-md"></ion-icon>
             </span>
         </div>
     </header>
@@ -107,13 +101,7 @@
         </ul>
     </div>
 
-    <div class="flex flex-col gap-2 rounded-md border-2 border-color6/30 p-4 event">
-        {{-- <div class="text-xs flex text-color6/80 font-medium">
-                <span class="w-[10%] block">{{ $c['tanggal'] }}</span>
-                <span class="w-[5%] block"> : </span>
-                <span class="w-[85%] block">{{ $c['event'] }}</span>
-            </div> --}}
-
+    <div class="flex flex-col gap-2 rounded-md shadow-md p-4 event">
     </div>
 </div>
 
@@ -186,9 +174,9 @@
             // Find the event for the current date
             const eventForCurrentDate = events.find(event => event.tanggal === i && event.bulan === (month + 1));
             if (eventForCurrentDate) {
-                isEvent = "text-color6 font-medium"
+                isEvent = `text-${eventForCurrentDate.color} font-semibold`;
             } else {
-                isEvent = "text-[#414141]"
+                isEvent = "text-[#414141]";
             }
 
             lit += `<li class="${isToday} ${isEvent} group">${i}</li>`;
@@ -203,7 +191,7 @@
 
         events.forEach(function(event) {
             let isMonth = event.bulan === (month + 1) ?
-                `<div class="text-xs flex text-color6/80 font-medium">
+                `<div class="text-sm flex text-${event.color} font-medium">
                 <span class="w-[10%] block">${event.tanggal}</span>
                 <span class="w-[5%] block"> : </span>
                 <span class="w-[85%] block">${event.event}</span>

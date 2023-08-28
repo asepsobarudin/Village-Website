@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\NewsController;
 use App\Http\Controllers\Home;
 use Illuminate\Support\Facades\Route;
 
@@ -25,4 +26,8 @@ Route::controller(Home::class)->group(function () {
 
 Route::controller(DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index');
+});
+
+Route::controller(NewsController::class)->group(function () {
+    Route::get('/dashboard/news', 'index');
 });

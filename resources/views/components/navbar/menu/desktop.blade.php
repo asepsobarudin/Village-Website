@@ -1,6 +1,6 @@
 <div class="hidden lg:flex justify-center items-center">
     <ul class="flex justify-center items-center text-color3 font-medium text-[14px] lg:text-[16px]">
-        <li class="flex justify-center items-center mx-3">
+        <li class="flex justify-center items-center mx-3 group">
             <a href="/"
                 class="p-3 hover:bg-color2 hover:text-color1 hover:skew-x-[-12deg] {{ $active == 'Home' ? 'text-color4' : '' }} rounded-md ease-in-out duration-100">Home</a>
         </li>
@@ -9,11 +9,21 @@
                 class="p-3 hover:bg-color2 hover:text-color1 hover:skew-x-[-12deg] {{ $active == 'Berita' ? 'text-color4' : '' }} rounded-md ease-in-out duration-100">Berita</a>
         </li>
         <li class="relative flex flex-col mx-3">
-            @component('components.navbar.dropdown.dropdown', ['id' => 'profile', 'title' => 'Profile', 'active' => $active, 'menu' => $menu['dropProfile']])
+            @component('components.navbar.dropdown.dropdown', [
+                'id' => 'profile',
+                'title' => 'Profile',
+                'active' => $active,
+                'menu' => $menu['dropProfile'],
+            ])
             @endcomponent
         </li>
         <li class="relative flex flex-col mx-3">
-            @component('components.navbar.dropdown.dropdown', ['id' => 'layanan', 'title' => 'Layanan', 'active' => $active, 'menu' => $menu['dropLayanan']])
+            @component('components.navbar.dropdown.dropdown', [
+                'id' => 'layanan',
+                'title' => 'Layanan',
+                'active' => $active,
+                'menu' => $menu['dropLayanan'],
+            ])
             @endcomponent
         </li>
     </ul>

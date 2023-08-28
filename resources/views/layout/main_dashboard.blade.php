@@ -23,7 +23,7 @@
 
 <body class="flex h-screen">
 
-    @component('components.dashboard_components.side_navbar')
+    @component('components.dashboard_components.side_navbar', ['title' => $title])
     @endcomponent
 
     <div class="w-full flex justify-center">
